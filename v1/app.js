@@ -52,7 +52,22 @@ app.post("/blogs", async function(req, res){
         res.redirect("/blogs");
     }
     catch(err){
-        res.redirect("new")
+        res.render("new")
+        console.log(err);
+    }
+});
+
+// SHOW ROUTE
+
+app.get("/blogs/:id", async function(req, res){
+    // Save blog id to variable and trim
+    var foundBlog = req.params.id.trim();
+    // Find blog with provided id
+    try {
+        var blogs = await Blog.findById(foundBlog);
+        res.render("show", {blogs: blogs});
+    }
+    catch(err){
         console.log(err);
     }
 });
