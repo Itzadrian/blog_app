@@ -1,0 +1,33 @@
+RESTFULL ROUTES
+   name       url/route      HTTP verb     discription
+================================================================
+1. INDEX      /dogs          GET           Display a list of all dogs
+2. NEW        /dogs/new      GET           Displays form to make a new dog
+3. CREATE     /dogs          POST          Create a new dog then redirect somewhere
+4. SHOW       /dogs/:id      GET           Shows info about on dog
+5. EDIT       /dogs/:id/edit GET           Show edit form for one dog
+6. UPDATE     /dogs/:id      PUT           Update a particular dog then redirect somewhere
+7. DELETE     /dogs/:id      DELETE        Delete a particular dog the redirect somewhere
+
+
+REST - a mapping between HTTP routes and CRUD(create, read, update and destroy) its a convention for mapping our HTTP routes to CRUD functionality
+
+req.params.id.trim();
+
+
+
+<%- include('partials/header')  %>
+<div class="ui main text container segment">
+    <div class="ui huge header">New Blog</div>
+    <form action="/blogs" method="post">
+        <input type="text" name="blog[title]" placeholder="title">
+        <input type="text" name="blog[image]" placeholder="image">
+        <input type="text" name="blog[body]" placeholder="blog post goes here">
+        <input type="submit">
+    </form>
+</div>
+
+
+
+
+<%- include('partials/footer')  %>
