@@ -1,13 +1,13 @@
 RESTFULL ROUTES
-   name       url/route      HTTP verb     discription
-================================================================
-1. INDEX      /dogs          GET           Display a list of all dogs
-2. NEW        /dogs/new      GET           Displays form to make a new dog
-3. CREATE     /dogs          POST          Create a new dog then redirect somewhere
-4. SHOW       /dogs/:id      GET           Shows info about on dog
-5. EDIT       /dogs/:id/edit GET           Show edit form for one dog
-6. UPDATE     /dogs/:id      PUT           Update a particular dog then redirect somewhere
-7. DELETE     /dogs/:id      DELETE        Delete a particular dog the redirect somewhere
+   name       url/route      HTTP verb     discription                                       Mongoose method
+=================================================================================================================================
+1. INDEX    |  /dogs          GET           Display a list of all dogs                        dog.find()
+2. NEW      |  /dogs/new      GET           Displays form to make a new dog                   N/A
+3. CREATE   |  /dogs          POST          Create a new dog then redirect somewhere          dog.create()
+4. SHOW     |  /dogs/:id      GET           Shows info about on dog                           dog.findById()
+5. EDIT     |  /dogs/:id/edit GET           Show edit form for one dog                        dog.findById()
+6. UPDATE   |  /dogs/:id      PUT           Update a particular dog then redirect somewhere   dog.findByIdAndUpdate()
+7. DELETE   |  /dogs/:id      DELETE        Delete a particular dog the redirect somewhere    dog.findByIdAndDelete()
 
 
 REST - a mapping between HTTP routes and CRUD(create, read, update and destroy) its a convention for mapping our HTTP routes to CRUD functionality
