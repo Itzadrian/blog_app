@@ -5,13 +5,15 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "env-cmd node --watch index.js"
   },
   "author": "Dominic Nzube Simeon",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
     "ejs": "^3.1.9",
+    "env-cmd": "^10.1.0",
     "express": "^4.18.2",
     "express-sanitizer": "^1.0.6",
     "method-override": "^3.0.0",
