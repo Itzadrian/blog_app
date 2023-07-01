@@ -8,7 +8,6 @@ var express = require("express"),
 console.log(process.env.DATABASEURL);
  // APP CONFIG
 mongoose.connect(process.env.DATABASEURL);
-// mongoose.connect("mongodb+srv://simeondominic:Oud1dJPKKBHAmC2U@clustersimeon.nbcxvn4.mongodb.net/");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
