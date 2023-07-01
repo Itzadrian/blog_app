@@ -12,7 +12,7 @@ console.log(process.env.DATABASEURL);
 var PORT = process.env.PORT || 3000;
 var connectDB = async () => {
     try {
-      var conn = await mongoose.connect(process.env.DATABASEURL);
+      var conn = await mongoose.connect("mongodb+srv://simeondominic:Oud1dJPKKBHAmC2U@clustersimeon.nbcxvn4.mongodb.net/");
       console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
       console.log(error);
