@@ -5,8 +5,10 @@ var express = require("express"),
  methodOverride = require("method-override"),
  expressSanitizer = require("express-sanitizer");
 
-// APP CONFIG
-mongoose.connect("mongodb+srv://simeondominic:Oud1dJPKKBHAmC2U@clustersimeon.nbcxvn4.mongodb.net/");
+console.log(process.env.DATABASEURL);
+ // APP CONFIG
+mongoose.connect(process.env.DATABASEURL);
+// mongoose.connect("mongodb+srv://simeondominic:Oud1dJPKKBHAmC2U@clustersimeon.nbcxvn4.mongodb.net/");
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
