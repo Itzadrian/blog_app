@@ -1,12 +1,14 @@
-var express = require("express"),
- app = express(),
- bodyParser = require("body-parser"),
- mongoose = require("mongoose"),
- methodOverride = require("method-override"),
- expressSanitizer = require("express-sanitizer");
+var express            = require("express"),
+ app                   = express(),
+ bodyParser            = require("body-parser"),
+ mongoose              = require("mongoose"),
+ methodOverride        = require("method-override"),
+ dotenv                = require("dotenv"),
+ expressSanitizer      = require("express-sanitizer");
 
 console.log(process.env.DATABASEURL);
  // APP CONFIG
+ dotenv.config();
 var PORT = process.env.PORT || 3000;
 var connectDB = async () => {
     try {
@@ -149,6 +151,6 @@ app.delete("/blogs/:id", async function(req, res){
 
 connectDB().then(() => {
     app.listen(PORT, () => {
-        console.log("listening for reequest")
+        console.log("listening for request")
     })
 })
