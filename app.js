@@ -7,7 +7,17 @@ var express = require("express"),
 
 console.log(process.env.DATABASEURL);
  // APP CONFIG
-mongoose.connect(process.env.DATABASEURL);
+var PORT = process.env.PORT || 3000;
+var connectDB = async () => {
+    try {
+      var conn = await mongoose.connect(process.env.DATABASEURL);
+      console.log(`MongoDB Connected: ${conn.connection.host}`);
+    } catch (error) {
+      console.log(error);
+      process.exit(1);
+    }
+  }
+// mongoose.connect(process.env.DATABASEURL);
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
@@ -133,6 +143,12 @@ app.delete("/blogs/:id", async function(req, res){
         console.log(err);
     }
 })
-app.listen(3000, function(){
-    console.log("Blog Server Started");
-});
+// app.listen(3000, function(){
+//     console.log("Blog Server Started");
+// });
+
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("listening for reequest")
+    })
+})
